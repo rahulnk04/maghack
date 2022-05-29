@@ -1,0 +1,23 @@
+.footer {
+    background-color: #f0ecec;
+    padding: 12px 0;
+    .footer-inner {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .copy-right {
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 10px;
+      text-align: center;
+      color: #FE414D;
+    }
+  }
+  @media screen and (min-width: 960px) {
+    .footer {
+      .copy-right {
+        margin-left: 0px;
+        text-align: center;
+      }
+    }
+  }

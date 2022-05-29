@@ -1,9 +1,26 @@
+import React, { Fragment } from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+// import NavMenu from "./components/layout/NavMenu";
+import Home from "./components/home/Home";
 import "./App.css";
-
-import React from "react";
+import Wrapper from "./components/layout/Wrapper";
 
 const App = () => {
-  return <div style={{ fontSize: 100 }} className="text-danger">MagHack</div>;
+  return (
+    <Fragment>
+      <HashRouter basename="/">
+        <Routes>
+          <Route path="/" element={<Wrapper />}>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
+          </Route>
+
+          {/* <Route exact path="/resume" element={<Resume />} /> */}
+          {/* <Route path="/reward/:id" element={<Rewardpdf />} /> */}
+        </Routes>
+      </HashRouter>
+    </Fragment>
+  );
 };
 
 export default App;
