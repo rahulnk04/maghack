@@ -7,7 +7,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  let navigate = useNavigate()
   const { topics, loading } = useSelector((state) => state.topicsAll);
   return (
     <Fragment>
@@ -25,7 +28,7 @@ const Home = () => {
               <Card align="center">
                 <CardActionArea
                   onClick={() => {
-                    alert("comming soon");
+                    navigate(`/${topic.path}`)
                   }}
                 >
                   <CardContent>

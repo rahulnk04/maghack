@@ -10,7 +10,7 @@ const Wrapper = () => {
     <Fragment>
       <NavMenu />
       <Profile />
-      <Box sx={{ p: 1, mt: 3, minHeight: "65vh" }}>
+      <Box sx={{ p: 2, mt: 4, minHeight: "65vh" }}>
         <Outlet />
       </Box>
       <FooterMenu />

@@ -1,20 +1,19 @@
 import React, { Fragment, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getTopics } from "./redux/actions/actions";
 import Home from "./components/home/Home";
 import "./App.css";
 import Wrapper from "./components/layout/Wrapper";
-
+import ReactLearn from "./components/main/react/ReactLearn";
+import AngularLearn from "./components/main/angular/AngularLearn";
 
 const App = () => {
-
   const dispatch = useDispatch();
-  const { error } = useSelector((state) => state.topicsAll);
 
   useEffect(() => {
     dispatch(getTopics());
-  }, [dispatch, error]);
+  }, [dispatch]);
   return (
     <Fragment>
       <HashRouter basename="/">
@@ -22,6 +21,9 @@ const App = () => {
           <Route path="/" element={<Wrapper />}>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/home" element={<Home />} />
+            <Route exact path="/react" element={<ReactLearn />} />
+            <Route exact path="/angular" element={<AngularLearn />} />
+            <Route exact path="/*" element={<div>Not Found</div>} />
           </Route>
 
           {/* <Route exact path="/resume" element={<Resume />} /> */}
