@@ -5,20 +5,19 @@ import Main from "../Main";
 
 const ReactLearn = () => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line
   const { reacttopics, reacttopicloading, reacttopicerror } = useSelector(
     (state) => state.reactTopicsAll
   );
+  // eslint-disable-next-line
   const { reactqstns, reactqstnsloading, reactqstnserror } = useSelector(
     (state) => state.reactQstnsAll
   );
   useEffect(() => {
-    getResult();
+    dispatch(getReactTopics());
+    dispatch(getReactQstns());
   }, [dispatch]);
 
-  const getResult = async () => {
-    await dispatch(getReactTopics());
-    await dispatch(getReactQstns());
-  };
   return (
     <Fragment>
       <Main topics={reacttopics} qstns={reactqstns} />

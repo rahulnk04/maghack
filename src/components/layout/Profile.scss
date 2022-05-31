@@ -18,7 +18,7 @@
   }
 
   .title {
-    font-size: 125%;
+    font-size: 110%;
     position: absolute;
     bottom: 0px;
     left: 135px;
@@ -28,7 +28,11 @@
     font-family: "Roboto", sans-serif;
     div {
       font-weight: normal;
-      font-size: 80%;
+      font-size: 70%;
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
     }
   }
 }
