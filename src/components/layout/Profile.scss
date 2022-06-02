@@ -36,6 +36,12 @@
       a:hover {
         color: #FE414D;
       }
+      .myicn{
+        transition: transform .2s;
+      }
+      .myicn:hover{
+        transform: scale(1.2)
+      }
     }
   }
 }

@@ -27,7 +27,7 @@ const Profile = () => {
               rel="noreferrer"
             >
               <Tooltip title="My Profile">
-                <AccountCircleIcon fontSize="small" role="button" />
+                <AccountCircleIcon className="myicn" fontSize="small" role="button" />
               </Tooltip>
             </a>{" "}
             <a
@@ -36,7 +36,7 @@ const Profile = () => {
               rel="noreferrer"
             >
               <Tooltip title="Github Profile">
-                <GitHubIcon fontSize="small" role="button" />
+                <GitHubIcon className="myicn" fontSize="small" role="button" />
               </Tooltip>
             </a>{" "}
             <a
@@ -45,7 +45,7 @@ const Profile = () => {
               rel="noreferrer"
             >
               <Tooltip title="LinkedIn Profile">
-                <LinkedInIcon fontSize="small" role="button" />
+                <LinkedInIcon className="myicn" fontSize="small" role="button" />
               </Tooltip>
             </a>{" "}
             <a
@@ -54,7 +54,7 @@ const Profile = () => {
               rel="noreferrer"
             >
               <Tooltip title="Facebook Profile">
-                <FacebookIcon fontSize="small" role="button" />
+                <FacebookIcon className="myicn" fontSize="small" role="button" />
               </Tooltip>
             </a>{" "}
             <a
@@ -63,7 +63,7 @@ const Profile = () => {
               rel="noreferrer"
             >
               <Tooltip title="Twitter Profile">
-                <TwitterIcon fontSize="small" role="button" />
+                <TwitterIcon className="myicn" fontSize="small" role="button" />
               </Tooltip>
             </a>
           </div>
