@@ -27,7 +27,7 @@ const Main = ({ data }) => {
         alignItems="center"
         alignContent="center"
       >
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Card align="center">
             <CardActionArea
               onClick={() => {
@@ -43,7 +43,7 @@ const Main = ({ data }) => {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Card align="center">
             <CardActionArea
               onClick={() => {
@@ -60,7 +60,7 @@ const Main = ({ data }) => {
             </CardActionArea>
           </Card>
         </Grid>
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={12} sm={12} md={4}>
           <Card align="center">
             <CardActionArea
               onClick={() => {
