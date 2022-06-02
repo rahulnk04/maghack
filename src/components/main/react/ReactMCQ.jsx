@@ -18,7 +18,7 @@ const ReactMCQ = () => {
     <Fragment>
       <Typography
         variant="overline"
-        sx={{ color: "#079FFF", fontWeight: "bold" }}
+        sx={{ fontWeight: "bold", fontSize:16 }}
       >
         React JS MCQ Questions !!
       </Typography>
