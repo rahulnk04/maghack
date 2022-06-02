@@ -9,6 +9,9 @@ import {
   ALL_QSTNS_REACTJS_REQUEST,
   ALL_QSTNS_REACTJS_SUCCESS,
   ALL_QSTNS_REACTJS_FAIL,
+  ALL_MCQ_REACTJS_REQUEST,
+  ALL_MCQ_REACTJS_SUCCESS,
+  ALL_MCQ_REACTJS_FAIL,
 } from "../constants/Constants";
 
 // All Topics Start
@@ -48,20 +51,20 @@ export const topicsReactReducer = (state = { reacttopics: [] }, action) => {
       return {
         reacttopicloading: true,
         reacttopics: [],
-        reacttopicSuccess:false
+        reacttopicSuccess: false,
       };
     case ALL_TOPICS_REACTJS_SUCCESS:
       return {
         reacttopicloading: false,
         reacttopics: action.payload,
-        reacttopicSuccess:true
+        reacttopicSuccess: true,
       };
     case ALL_TOPICS_REACTJS_FAIL:
       return {
         // loading:false,
         reacttopicerror: action.payload,
         ...state,
-        reacttopicSuccess:false
+        reacttopicSuccess: false,
       };
     case CLEAR_ERRORS:
       return {
@@ -95,6 +98,34 @@ export const qstnReactReducer = (state = { reactqstns: [] }, action) => {
       return {
         ...state,
         reactqstnserror: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export const mcqReactReducer = (state = { reactmcqs: [] }, action) => {
+  switch (action.type) {
+    case ALL_MCQ_REACTJS_REQUEST:
+      return {
+        reactmcqsloading: true,
+        reactmcqs: [],
+      };
+    case ALL_MCQ_REACTJS_SUCCESS:
+      return {
+        reactmcqsloading: false,
+        reactmcqs: action.payload,
+      };
+    case ALL_MCQ_REACTJS_FAIL:
+      return {
+        // loading:false,
+        reactmcqserror: action.payload,
+        ...state,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        reactmcqserror: null,
       };
     default:
       return state;

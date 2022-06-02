@@ -10,6 +10,9 @@ import {
   ALL_QSTNS_REACTJS_REQUEST,
   ALL_QSTNS_REACTJS_SUCCESS,
   ALL_QSTNS_REACTJS_FAIL,
+  ALL_MCQ_REACTJS_REQUEST,
+  ALL_MCQ_REACTJS_SUCCESS,
+  ALL_MCQ_REACTJS_FAIL,
 } from "../constants/Constants";
 
 export const getTopics = () => async (dispatch) => {
@@ -74,6 +77,29 @@ export const getReactQstns = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: ALL_QSTNS_REACTJS_FAIL,
+      payload: error.response.data.message,
+      // payload: error.response.data.error.message
+      // payload: error.response.data.message,
+    });
+  }
+};
+
+export const getReactMcqs = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: ALL_MCQ_REACTJS_REQUEST,
+    });
+
+    const API_URL = `https://rahulnk04.github.io/myapi-v1/questions/reactjs/mcq.json`;
+
+    const { data } = await axios.get(API_URL);
+    dispatch({
+      type: ALL_MCQ_REACTJS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_MCQ_REACTJS_FAIL,
       payload: error.response.data.message,
       // payload: error.response.data.error.message
       // payload: error.response.data.message,

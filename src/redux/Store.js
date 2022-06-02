@@ -5,12 +5,14 @@ import {
   topicsReducer,
   topicsReactReducer,
   qstnReactReducer,
+  mcqReactReducer,
 } from "./reducers/Reducers";
 
 const reducer = combineReducers({
   topicsAll: topicsReducer,
   reactTopicsAll: topicsReactReducer,
   reactQstnsAll: qstnReactReducer,
+  reactMcqAll: mcqReactReducer,
 });
 let initialState = {};
 const middleware = [thunk];
