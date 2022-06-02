@@ -1,0 +1,21 @@
+.myLoadingText {
+  animation: color-change 2s infinite;
+}
+
+@keyframes color-change {
+  0% {
+    color: #079fff;
+  }
+  25% {
+    color: #00e6c3;
+  }
+  50% {
+    color: #fe414d;
+  }
+  75% {
+    color: #ffe63b;
+  }
+  100% {
+    color: #079fff;
+  }
+}

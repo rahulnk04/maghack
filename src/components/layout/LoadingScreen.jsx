@@ -7,11 +7,12 @@ const LoadingScreen = () => {
     <Box>
       <Skeleton animation="wave" />
       <Skeleton variant="rectangular" height={118} />
-      <Typography align="center" variant="subtitle2" color="#079FFF">
+      <Typography className="myLoadingText" align="center" variant="subtitle2" color="#079FFF">
         Be Patient, Syncing Data...
       </Typography>
       <Skeleton variant="rectangular" height={118} />
       <Skeleton animation="wave" />
+      <Skeleton variant="rectangular" height={68} />
     </Box>
   );
 };

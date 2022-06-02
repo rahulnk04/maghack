@@ -1,10 +1,10 @@
 .home-container {
   position: relative;
-  height: 85px;
+  height: 95px;
   margin: auto;
   .logo {
     position: absolute;
-    bottom: -30px;
+    bottom: -20px;
     width: 100px;
     height: 100px;
     left: 15px;
@@ -32,6 +32,9 @@
       a {
         text-decoration: none;
         color: #fff;
+      }
+      a:hover {
+        color: #FE414D;
       }
     }
   }
