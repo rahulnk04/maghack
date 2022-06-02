@@ -10,29 +10,20 @@ import { a11yDark as docco } from "react-syntax-highlighter/dist/esm/styles/pris
 const QstnMain = ({ topics, qstns }) => {
   return (
     <Fragment>
+      <Typography
+        variant="overline"
+        sx={{ color: "#079FFF", fontWeight: "bold" }}
+      >
+        Key Concepts covered includes following
+      </Typography>
       <Stack
         direction={{ xs: "column", sm: "column", md: "row" }}
         spacing={{ xs: 1, sm: 1, md: 1 }}
       >
         {topics.map((r, i) => (
-          <Chip
-            color="info"
-            label={r.name}
-            id={r.Id}
-            key={i}
-            onClick={() => {
-              alert("comming");
-            }}
-          />
+          <Chip color="primary" label={r.name} variant="outlined" key={i} />
         ))}
-        <Chip
-          label={`Total Question - ${qstns.length}`}
-          //   variant="outlined"
-          color="primary"
-          onClick={() => {
-            alert("comming");
-          }}
-        />
+        <Chip label={`Total Question - ${qstns.length}`} color="primary" />
       </Stack>
       {qstns.map((r, i) => (
         <Box key={i} sx={{ mt: 3 }}>
