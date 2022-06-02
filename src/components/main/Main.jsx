@@ -1,116 +1,83 @@
 import React, { Fragment } from "react";
-import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
+import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { a11yDark as docco } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Box, CardActionArea } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const Main = ({ topics, qstns }) => {
+const Main = ({ data }) => {
+  let navigate = useNavigate();
   return (
     <Fragment>
-      <Stack
-        direction={{ xs: "column", sm: "column", md: "row" }}
-        spacing={{ xs: 1, sm: 1, md: 1 }}
+      {" "}
+      <Box sx={{ mb: 3 }}>
+        <Typography variant="h6" sx={{ color: "#079FFF" }}>
+          What is {data.name} ?
+        </Typography>
+        <Typography variant="body2" color={"text.secondary"}>
+          {data.desc}
+        </Typography>
+      </Box>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        alignItems="center"
+        alignContent="center"
       >
-        {topics.map((r, i) => (
-          <Chip
-            color="info"
-            label={r.name}
-            id={r.Id}
-            key={i}
-            onClick={() => {
-              alert("comming");
-            }}
-          />
-        ))}
-        <Chip
-          label={`Total Question - ${qstns.length}`}
-          //   variant="outlined"
-          color="primary"
-          onClick={() => {
-            alert("comming");
-          }}
-        />
-      </Stack>
-      {qstns.map((r, i) => (
-        <Box key={i} sx={{ mt: 3 }}>
-          <Box sx={{ display: "flex" }}>
-            <Avatar
-              sx={{
-                width: 23,
-                height: 23,
-                bgcolor: "#FE414D",
-                fontSize: 10,
-                mr: 1,
+        <Grid item xs={2} sm={4} md={4}>
+          <Card align="center">
+            <CardActionArea
+              onClick={() => {
+                navigate(`/${data["path"]}-questions`);
               }}
             >
-              {i + 1}
-            </Avatar>
-            <Typography style={{ color: "#079FFF", fontSize: 16 }} variant="h6">
-              {r["question"]}
-            </Typography>
-          </Box>
-
-          <Box sx={{ color: "#000", mt: 1 }}>
-            <Typography variant="body2">{r["answer"]}</Typography>
-          </Box>
-          {r["bulletsTrue"] && (
-            <Box>
-              <ul className="text-muted">
-                {r["bullets"].map((b, bi) => (
-                  <li key={bi}>
-                    <Typography variant="body2">{b}</Typography>
-                  </li>
-                ))}
-              </ul>
-            </Box>
-          )}
-          {r["codeTrue"] && (
-            <Fragment>
-              {r["codes"].map((c, ci) => (
-                <Box key={ci}>
-                  <Box sx={{ color: "#FE414D" }}>
-                    <Typography variant="caption" sx={{ fontSize: 13 }}>
-                      {c["codeHead"]}
-                    </Typography>
-                  </Box>
-                  <SyntaxHighlighter
-                    lineProps={{
-                      style: {
-                        wordBreak: "break-all",
-                        whiteSpace: "pre-wrap",
-                        fontSize: 14,
-                      },
-                    }}
-                    wrapLines={true}
-                    language="jsx"
-                    style={docco}
-                  >
-                    {c["code"]}
-                  </SyntaxHighlighter>
-                </Box>
-              ))}
-            </Fragment>
-          )}
-          {r["imageTrue"] && (
-            <Fragment>
-              {r["images"].map((img, imi) => (
-                <Box key={imi}>
-                  <img
-                    className="img-fluid"
-                    src={img["image"]}
-                    alt={img["image"]}
-                  />
-                  <br />
-                  <span style={{ color: "#FE414D" }}>{img["imageHead"]}</span>
-                </Box>
-              ))}
-            </Fragment>
-          )}
-        </Box>
-      ))}
+              <CardContent>
+                <img src={data["img"]} alt={data["name"]} width={80} />
+                <Typography color="text.secondary">
+                  {data["name"]} Core Concepts
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={2} sm={4} md={4}>
+          <Card align="center">
+            <CardActionArea
+              onClick={() => {
+                navigate(`/${data["path"]}-mcq`);
+              }}
+            >
+              <CardContent>
+                <img src={data["img"]} alt={data["name"]} width={80} />
+                <Typography color="text.secondary">
+                  {" "}
+                  {data["name"]} (MCQ's)
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={2} sm={4} md={4}>
+          <Card align="center">
+            <CardActionArea
+              onClick={() => {
+                navigate(`/${data["path"]}-tutorial`);
+              }}
+            >
+              <CardContent>
+                <img src={data["img"]} alt={data["name"]} width={80} />
+                <Typography color="text.secondary">
+                  {" "}
+                  {data["name"]} Tutorial
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
     </Fragment>
   );
 };

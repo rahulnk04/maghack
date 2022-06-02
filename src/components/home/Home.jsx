@@ -8,14 +8,15 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import LoadingScreen from "../layout/LoadingScreen";
 
 const Home = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const { topics, loading } = useSelector((state) => state.topicsAll);
   return (
     <Fragment>
       {loading ? (
-        "Loading"
+        <LoadingScreen />
       ) : (
         <Grid
           container
@@ -28,7 +29,7 @@ const Home = () => {
               <Card align="center">
                 <CardActionArea
                   onClick={() => {
-                    navigate(`/${topic.path}`)
+                    navigate(`/${topic.path}`);
                   }}
                 >
                   <CardContent>

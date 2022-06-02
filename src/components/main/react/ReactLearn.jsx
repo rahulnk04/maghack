@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getReactTopics, getReactQstns } from "../../../redux/actions/actions";
-import Main from "../Main";
+import LoadingScreen from "../../layout/LoadingScreen";
+import QstnMain from "../QstnMain";
 
 const ReactLearn = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,11 @@ const ReactLearn = () => {
 
   return (
     <Fragment>
-      <Main topics={reacttopics} qstns={reactqstns} />
+      {reactqstnsloading ? (
+        <LoadingScreen />
+      ) : (
+        <QstnMain topics={reacttopics} qstns={reactqstns} />
+      )}
     </Fragment>
   );
 };

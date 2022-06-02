@@ -7,6 +7,9 @@ import "./App.css";
 import Wrapper from "./components/layout/Wrapper";
 import ReactLearn from "./components/main/react/ReactLearn";
 import AngularLearn from "./components/main/angular/AngularLearn";
+import ReactMain from "./components/main/react/ReactMain";
+import ReactMCQ from "./components/main/react/ReactMCQ";
+import ReactTutorial from "./components/main/react/ReactTutorial";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,9 +24,17 @@ const App = () => {
           <Route path="/" element={<Wrapper />}>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/home" element={<Home />} />
-            <Route exact path="/react" element={<ReactLearn />} />
+            <Route exact path="/react" element={<ReactMain />} />
+            <Route exact path="/react-questions" element={<ReactLearn />} />
+            <Route exact path="/react-mcq" element={<ReactMCQ />} />
+            <Route exact path="/react-tutorial" element={<ReactTutorial />} />
+
             <Route exact path="/angular" element={<AngularLearn />} />
-            <Route exact path="/*" element={<div>Not Found</div>} />
+            <Route
+              exact
+              path="/*"
+              element={<div>Site Under construction</div>}
+            />
           </Route>
 
           {/* <Route exact path="/resume" element={<Resume />} /> */}
