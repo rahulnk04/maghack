@@ -1,7 +1,7 @@
 // Variables
 $c-main: hsla(0, 100%, 100%, 0.75);
 $c-secondary: hsla(200, 5%, 11%, 1);
-$c-malabars: hsla(178, 40%, 49%, 1);
+$c-malabars: #24292f;
 $c-trunk: hsla(23, 18%, 29%, 1);
 $c-white: hsla(0, 255%, 255%, 1);
 $bg-main: hsla(210, 3%, 15%, 1);
@@ -31,7 +31,7 @@ $media450: 450px;
   position: relative;
   height: 60vh;
   z-index: -10;
-  background: linear-gradient(to top, $c-secondary, $c-main);
+  //   background: linear-gradient(to top, $c-secondary, $c-main);
 }
 
 // Specifics
@@ -47,6 +47,7 @@ $media450: 450px;
   display: flex;
   //   height: 50vh; // Ensures that the text doesn't overlap the buildings until a weird aspect ratio occurs
   //   width: 70vw;
+  color: #24292f;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;

@@ -32,15 +32,8 @@ const App = () => {
             {/* <Route exact path="/react-tutorial" element={<ReactTutorial />} /> */}
 
             {/* <Route exact path="/angular" element={<AngularLearn />} /> */}
-            <Route
-              exact
-              path="/*"
-              element={
-                <div>
-                  <UnderConstruction />
-                </div>
-              }
-            />
+
+            <Route exact path="/*" element={<UnderConstruction />} />
           </Route>
 
           {/* <Route exact path="/resume" element={<Resume />} /> */}
