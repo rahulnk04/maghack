@@ -28,7 +28,10 @@ const McqMain = ({ mcqs }) => {
             >
               {i + 1}
             </Avatar>
-            <Typography style={{ color: "#079FFF", fontSize: 16 }} variant="subtitle1">
+            <Typography
+              style={{ color: "#079FFF", fontSize: 16 }}
+              variant="subtitle1"
+            >
               {mcq["question"]}
             </Typography>
           </Box>
