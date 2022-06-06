@@ -44,7 +44,7 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
             >
               {i + 1}
             </Avatar>
-            <Typography style={{ color: "#079FFF", fontSize: 16 }} variant="h6">
+            <Typography style={{ color: "#5d279b", fontSize: 16 }} variant="h6">
               {r["question"]}
             </Typography>
           </Box>
@@ -68,7 +68,10 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
               {r["codes"].map((c, ci) => (
                 <Box key={ci}>
                   <Box sx={{ color: "#FE414D" }}>
-                    <Typography variant="caption" sx={{ fontSize: 13 }}>
+                    <Typography
+                      variant="caption"
+                      sx={{ fontSize: 13, fontWeight: "bold" }}
+                    >
                       {c["codeHead"]}
                     </Typography>
                   </Box>
