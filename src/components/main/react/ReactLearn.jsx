@@ -24,7 +24,12 @@ const ReactLearn = () => {
       {reactqstnsloading ? (
         <LoadingScreen />
       ) : (
-        <QstnMain topics={reacttopics} qstns={reactqstns} />
+        <QstnMain
+          topics={reacttopics}
+          qstns={reactqstns}
+          topicsTrue={true}
+          lang={"jsx"}
+        />
       )}
     </Fragment>
   );

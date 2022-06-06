@@ -7,24 +7,29 @@ import Typography from "@mui/material/Typography";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark as docco } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const QstnMain = ({ topics, qstns }) => {
+const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
   return (
     <Fragment>
-      <Typography
-        variant="overline"
-        sx={{ color: "#079FFF", fontWeight: "bold" }}
-      >
-        Key Concepts covered includes following
-      </Typography>
-      <Stack
-        direction={{ xs: "column", sm: "column", md: "row" }}
-        spacing={{ xs: 1, sm: 1, md: 1 }}
-      >
-        {topics.map((r, i) => (
-          <Chip color="primary" label={r.name} variant="outlined" key={i} />
-        ))}
-        <Chip label={`Total Question - ${qstns.length}`} color="primary" />
-      </Stack>
+      {topicsTrue && (
+        <Fragment>
+          <Typography
+            variant="overline"
+            sx={{ color: "#079FFF", fontWeight: "bold" }}
+          >
+            Key Concepts covered includes following
+          </Typography>
+          <Stack
+            direction={{ xs: "column", sm: "column", md: "row" }}
+            spacing={{ xs: 1, sm: 1, md: 1 }}
+          >
+            {topics.map((r, i) => (
+              <Chip color="primary" label={r.name} variant="outlined" key={i} />
+            ))}
+            <Chip label={`Total Question - ${qstns.length}`} color="primary" />
+          </Stack>
+        </Fragment>
+      )}
+
       {qstns.map((r, i) => (
         <Box key={i} sx={{ mt: 3 }}>
           <Box sx={{ display: "flex" }}>
@@ -72,11 +77,11 @@ const QstnMain = ({ topics, qstns }) => {
                       style: {
                         wordBreak: "break-all",
                         whiteSpace: "pre-wrap",
-                        fontSize: 14,
+                        fontSize: 12,
                       },
                     }}
                     wrapLines={true}
-                    language="jsx"
+                    language={lang}
                     style={docco}
                   >
                     {c["code"]}

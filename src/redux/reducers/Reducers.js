@@ -12,6 +12,10 @@ import {
   ALL_MCQ_REACTJS_REQUEST,
   ALL_MCQ_REACTJS_SUCCESS,
   ALL_MCQ_REACTJS_FAIL,
+  ALL_QSTNS_JAVASCRIPT_REQUEST,
+  ALL_QSTNS_JAVASCRIPT_SUCCESS,
+  ALL_QSTNS_JAVASCRIPT_FAIL,
+  // JavaScript End
 } from "../constants/Constants";
 
 // All Topics Start
@@ -132,3 +136,37 @@ export const mcqReactReducer = (state = { reactmcqs: [] }, action) => {
   }
 };
 // ReactJS End
+
+// JavaScript Start
+export const qstnJavaScriptReducer = (
+  state = { javascriptqstns: [] },
+  action
+) => {
+  switch (action.type) {
+    case ALL_QSTNS_JAVASCRIPT_REQUEST:
+      return {
+        javascriptqstnsloading: true,
+        javascriptqstns: [],
+      };
+    case ALL_QSTNS_JAVASCRIPT_SUCCESS:
+      return {
+        javascriptqstnsloading: false,
+        javascriptqstns: action.payload,
+      };
+    case ALL_QSTNS_JAVASCRIPT_FAIL:
+      return {
+        // loading:false,
+        javascriptqstnserror: action.payload,
+        ...state,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        javascriptqstnserror: null,
+      };
+    default:
+      return state;
+  }
+};
+
+// JavaScript End

@@ -12,6 +12,8 @@ import ReactMCQ from "./components/main/react/ReactMCQ";
 
 // import AngularLearn from "./components/main/angular/AngularLearn";
 import UnderConstruction from "./components/layout/UnderConstruction";
+import JavaScriptMain from "./components/main/javascript/JavaScriptMain";
+import JavaScriptLearn from "./components/main/javascript/JavaScriptLearn";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,7 +33,12 @@ const App = () => {
             <Route exact path="/react-mcq" element={<ReactMCQ />} />
             {/* <Route exact path="/react-tutorial" element={<ReactTutorial />} /> */}
 
-            {/* <Route exact path="/angular" element={<AngularLearn />} /> */}
+            <Route exact path="/javascript" element={<JavaScriptMain />} />
+            <Route
+              exact
+              path="/javascript-questions"
+              element={<JavaScriptLearn />}
+            />
 
             <Route exact path="/*" element={<UnderConstruction />} />
           </Route>
