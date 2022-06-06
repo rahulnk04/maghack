@@ -7,6 +7,36 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Tooltip from "@mui/material/Tooltip";
 const Profile = () => {
+  const profile = "rahulnk04";
+  const MyData = [
+    {
+      link: `https://rahulnk04.github.io/portfolio/#/home`,
+      icon: (
+        <AccountCircleIcon className="myicn" fontSize="small" role="button" />
+      ),
+      title: "My Profile",
+    },
+    {
+      link: `https://github.com/${profile}`,
+      icon: <GitHubIcon className="myicn" fontSize="small" role="button" />,
+      title: "GitHub Profile",
+    },
+    {
+      link: `https://www.linkedin.com/in/${profile}`,
+      icon: <LinkedInIcon className="myicn" fontSize="small" role="button" />,
+      title: "LinkedIn Profile",
+    },
+    {
+      link: `https://www.facebook.com/${profile}`,
+      icon: <FacebookIcon className="myicn" fontSize="small" role="button" />,
+      title: "Facebook Profile",
+    },
+    {
+      link: `https://twitter.com/${profile}`,
+      icon: <TwitterIcon className="myicn" fontSize="small" role="button" />,
+      title: "Twitter Profile",
+    },
+  ];
   return (
     <Fragment>
       {" "}
@@ -21,51 +51,11 @@ const Profile = () => {
           <div>Associate Technology Level 2 - Publicis Sapient </div>
           <div>Former Associate Professional - DXC Technology</div>
           <div>
-            <a
-              href="https://rahulnk04.github.io/portfolio/#/home"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Tooltip title="My Profile">
-                <AccountCircleIcon className="myicn" fontSize="small" role="button" />
-              </Tooltip>
-            </a>{" "}
-            <a
-              href="https://github.com/rahulnk04"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Tooltip title="Github Profile">
-                <GitHubIcon className="myicn" fontSize="small" role="button" />
-              </Tooltip>
-            </a>{" "}
-            <a
-              href="https://www.linkedin.com/in/rahulnk04/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Tooltip title="LinkedIn Profile">
-                <LinkedInIcon className="myicn" fontSize="small" role="button" />
-              </Tooltip>
-            </a>{" "}
-            <a
-              href="https://www.facebook.com/rahulnk04"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Tooltip title="Facebook Profile">
-                <FacebookIcon className="myicn" fontSize="small" role="button" />
-              </Tooltip>
-            </a>{" "}
-            <a
-              href="https://twitter.com/rahulnk04"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <Tooltip title="Twitter Profile">
-                <TwitterIcon className="myicn" fontSize="small" role="button" />
-              </Tooltip>
-            </a>
+            {MyData.map((d, i) => (
+              <a key={i} href={d.link} target={"_blank"} rel="noreferrer">
+                <Tooltip title={d.title}>{d.icon}</Tooltip>{" "}
+              </a>
+            ))}
           </div>
         </h1>
       </div>
