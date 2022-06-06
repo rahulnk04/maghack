@@ -6,6 +6,7 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark as docco } from "react-syntax-highlighter/dist/esm/styles/prism";
+import Card from "@mui/material/Card";
 
 const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
   return (
@@ -31,84 +32,89 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
       )}
 
       {qstns.map((r, i) => (
-        <Box key={i} sx={{ mt: 3 }}>
-          <Box sx={{ display: "flex" }}>
-            <Avatar
-              sx={{
-                width: 23,
-                height: 23,
-                bgcolor: "#FE414D",
-                fontSize: 10,
-                mr: 1,
-              }}
-            >
-              {i + 1}
-            </Avatar>
-            <Typography style={{ color: "#5d279b", fontSize: 16 }} variant="h6">
-              {r["question"]}
-            </Typography>
-          </Box>
-
-          <Box sx={{ color: "#000", mt: 1 }}>
-            <Typography variant="body2">{r["answer"]}</Typography>
-          </Box>
-          {r["bulletsTrue"] && (
-            <Box>
-              <ul className="text-muted">
-                {r["bullets"].map((b, bi) => (
-                  <li key={bi}>
-                    <Typography variant="body2">{b}</Typography>
-                  </li>
-                ))}
-              </ul>
+        <Card sx={{ p: 2, m: 1 }} elevation={5}>
+          <Box key={i} sx={{}}>
+            <Box sx={{ display: "flex" }}>
+              <Avatar
+                sx={{
+                  width: 23,
+                  height: 23,
+                  bgcolor: "#FE414D",
+                  fontSize: 10,
+                  mr: 1,
+                }}
+              >
+                {i + 1}
+              </Avatar>
+              <Typography
+                style={{ color: "#5d279b", fontSize: 16 }}
+                variant="h6"
+              >
+                {r["question"]}
+              </Typography>
             </Box>
-          )}
-          {r["codeTrue"] && (
-            <Fragment>
-              {r["codes"].map((c, ci) => (
-                <Box key={ci}>
-                  <Box sx={{ color: "#FE414D" }}>
-                    <Typography
-                      variant="caption"
-                      sx={{ fontSize: 13, fontWeight: "bold" }}
+
+            <Box sx={{ color: "#000", mt: 1 }}>
+              <Typography variant="body2">{r["answer"]}</Typography>
+            </Box>
+            {r["bulletsTrue"] && (
+              <Box>
+                <ul className="text-muted">
+                  {r["bullets"].map((b, bi) => (
+                    <li key={bi}>
+                      <Typography variant="body2">{b}</Typography>
+                    </li>
+                  ))}
+                </ul>
+              </Box>
+            )}
+            {r["codeTrue"] && (
+              <Fragment>
+                {r["codes"].map((c, ci) => (
+                  <Box key={ci}>
+                    <Box sx={{ color: "#FE414D" }}>
+                      <Typography
+                        variant="caption"
+                        sx={{ fontSize: 13, fontWeight: "bold" }}
+                      >
+                        {c["codeHead"]}
+                      </Typography>
+                    </Box>
+                    <SyntaxHighlighter
+                      lineProps={{
+                        style: {
+                          wordBreak: "break-all",
+                          whiteSpace: "pre-wrap",
+                          fontSize: 12,
+                        },
+                      }}
+                      wrapLines={true}
+                      language={lang}
+                      style={docco}
                     >
-                      {c["codeHead"]}
-                    </Typography>
+                      {c["code"]}
+                    </SyntaxHighlighter>
                   </Box>
-                  <SyntaxHighlighter
-                    lineProps={{
-                      style: {
-                        wordBreak: "break-all",
-                        whiteSpace: "pre-wrap",
-                        fontSize: 12,
-                      },
-                    }}
-                    wrapLines={true}
-                    language={lang}
-                    style={docco}
-                  >
-                    {c["code"]}
-                  </SyntaxHighlighter>
-                </Box>
-              ))}
-            </Fragment>
-          )}
-          {r["imageTrue"] && (
-            <Fragment>
-              {r["images"].map((img, imi) => (
-                <Box key={imi}>
-                  <img
-                    className="img-fluid"
-                    src={img["image"]}
-                    alt={img["image"]}
-                  />
-                  <br />
-                  <span style={{ color: "#FE414D" }}>{img["imageHead"]}</span>
-                </Box>
-              ))}
-            </Fragment>
-          )}
-        </Box>
+                ))}
+              </Fragment>
+            )}
+            {r["imageTrue"] && (
+              <Fragment>
+                {r["images"].map((img, imi) => (
+                  <Box key={imi}>
+                    <img
+                      className="img-fluid"
+                      src={img["image"]}
+                      alt={img["image"]}
+                    />
+                    <br />
+                    <span style={{ color: "#FE414D" }}>{img["imageHead"]}</span>
+                  </Box>
+                ))}
+              </Fragment>
+            )}
+          </Box>
+        </Card>
       ))}
     </Fragment>
   );

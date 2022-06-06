@@ -15,7 +15,7 @@ const McqMain = ({ mcqs }) => {
   return (
     <div>
       {mcqs.map((mcq, i) => (
-        <Card key={i} sx={{ mb: 2, p: 2 }} elevation={1}>
+        <Card key={i} sx={{ mb: 2, p: 2 }} elevation={5}>
           <Box sx={{ display: "flex" }}>
             <Avatar
               sx={{
