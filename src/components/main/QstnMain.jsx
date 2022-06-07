@@ -32,8 +32,8 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
       )}
 
       {qstns.map((r, i) => (
-        <Card sx={{ p: 2, m: 1 }} elevation={5}>
-          <Box key={i} sx={{}}>
+        <Card key={i} sx={{ p: 2, m: 1 }} elevation={5}>
+          <Box sx={{}}>
             <Box sx={{ display: "flex" }}>
               <Avatar
                 sx={{
