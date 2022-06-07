@@ -1,9 +1,9 @@
 import axios from "axios";
 import {
+  CLEAR_ERRORS,
   ALL_TOPICS_DETAILS_REQUEST,
   ALL_TOPICS_DETAILS_SUCCESS,
   ALL_TOPICS_DETAILS_FAIL,
-  CLEAR_ERRORS,
   ALL_TOPICS_REACTJS_REQUEST,
   ALL_TOPICS_REACTJS_SUCCESS,
   ALL_TOPICS_REACTJS_FAIL,
@@ -16,7 +16,16 @@ import {
   ALL_QSTNS_JAVASCRIPT_REQUEST,
   ALL_QSTNS_JAVASCRIPT_SUCCESS,
   ALL_QSTNS_JAVASCRIPT_FAIL,
+  ALL_QSTNS_NODEJS_REQUEST,
+  ALL_QSTNS_NODEJS_SUCCESS,
+  ALL_QSTNS_NODEJS_FAIL,
 } from "../constants/Constants";
+
+export const clearErrors = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_ERRORS,
+  });
+};
 
 export const getTopics = () => async (dispatch) => {
   try {
@@ -136,11 +145,29 @@ export const getJavaScriptQstns = () => async (dispatch) => {
     });
   }
 };
-
 // JavaScript End
 
-export const clearErrors = () => async (dispatch) => {
-  dispatch({
-    type: CLEAR_ERRORS,
-  });
+// NodeJst Start
+export const getNodeJstQstns = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: ALL_QSTNS_NODEJS_REQUEST,
+    });
+
+    const API_URL = `https://rahulnk04.github.io/myapi-v1/questions/nodejs/nodejsqstn.json`;
+
+    const { data } = await axios.get(API_URL);
+    dispatch({
+      type: ALL_QSTNS_NODEJS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_QSTNS_NODEJS_FAIL,
+      payload: error.response.data.message,
+      // payload: error.response.data.error.message
+      // payload: error.response.data.message,
+    });
+  }
 };
+// NodeJst End

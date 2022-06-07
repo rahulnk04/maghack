@@ -1,8 +1,8 @@
 import {
+  CLEAR_ERRORS,
   ALL_TOPICS_DETAILS_REQUEST,
   ALL_TOPICS_DETAILS_SUCCESS,
   ALL_TOPICS_DETAILS_FAIL,
-  CLEAR_ERRORS,
   ALL_TOPICS_REACTJS_REQUEST,
   ALL_TOPICS_REACTJS_SUCCESS,
   ALL_TOPICS_REACTJS_FAIL,
@@ -15,6 +15,9 @@ import {
   ALL_QSTNS_JAVASCRIPT_REQUEST,
   ALL_QSTNS_JAVASCRIPT_SUCCESS,
   ALL_QSTNS_JAVASCRIPT_FAIL,
+  ALL_QSTNS_NODEJS_REQUEST,
+  ALL_QSTNS_NODEJS_SUCCESS,
+  ALL_QSTNS_NODEJS_FAIL,
   // JavaScript End
 } from "../constants/Constants";
 
@@ -168,5 +171,34 @@ export const qstnJavaScriptReducer = (
       return state;
   }
 };
-
 // JavaScript End
+
+// NodeJs Start
+export const qstnNodeJsReducer = (state = { nodejsqstns: [] }, action) => {
+  switch (action.type) {
+    case ALL_QSTNS_NODEJS_REQUEST:
+      return {
+        nodejsqstnsloading: true,
+        nodejsqstns: [],
+      };
+    case ALL_QSTNS_NODEJS_SUCCESS:
+      return {
+        nodejsqstnsloading: false,
+        nodejsqstns: action.payload,
+      };
+    case ALL_QSTNS_NODEJS_FAIL:
+      return {
+        // loading:false,
+        nodejsqstnserror: action.payload,
+        ...state,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        nodejsqstnserror: null,
+      };
+    default:
+      return state;
+  }
+};
+// NodeJs End

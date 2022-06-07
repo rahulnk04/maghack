@@ -7,6 +7,7 @@ import {
   qstnReactReducer,
   mcqReactReducer,
   qstnJavaScriptReducer,
+  qstnNodeJsReducer,
 } from "./reducers/Reducers";
 
 const reducer = combineReducers({
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   reactQstnsAll: qstnReactReducer,
   reactMcqAll: mcqReactReducer,
   javascriptAll: qstnJavaScriptReducer,
+  nodejsAll: qstnNodeJsReducer,
 });
 let initialState = {};
 const middleware = [thunk];

@@ -55,14 +55,21 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
             </Box>
 
             <Box sx={{ color: "#000", mt: 1 }}>
-              <Typography variant="body2">{r["answer"]}</Typography>
+              <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                {r["answer"]}
+              </Typography>
             </Box>
             {r["bulletsTrue"] && (
               <Box>
                 <ul className="text-muted">
                   {r["bullets"].map((b, bi) => (
                     <li key={bi}>
-                      <Typography variant="body2">{b}</Typography>
+                      <Typography
+                        sx={{ whiteSpace: "pre-line" }}
+                        variant="body2"
+                      >
+                        {b}
+                      </Typography>
                     </li>
                   ))}
                 </ul>

@@ -14,6 +14,8 @@ import ReactMCQ from "./components/main/react/ReactMCQ";
 import UnderConstruction from "./components/layout/UnderConstruction";
 import JavaScriptMain from "./components/main/javascript/JavaScriptMain";
 import JavaScriptLearn from "./components/main/javascript/JavaScriptLearn";
+import NodejsMain from "./components/main/nodejs/NodejsMain";
+import NodejsLearn from "./components/main/nodejs/NodejsLearn";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -39,7 +41,12 @@ const App = () => {
               path="/javascript-questions"
               element={<JavaScriptLearn />}
             />
-
+            <Route exact path="/nodejs" element={<NodejsMain />} />
+            <Route
+              exact
+              path="/nodejs-questions"
+              element={<NodejsLearn />}
+            />
             <Route exact path="/*" element={<UnderConstruction />} />
           </Route>
 
