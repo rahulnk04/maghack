@@ -4,11 +4,25 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea } from "@mui/material";
+import { Box, CardActionArea, Chip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const Main = ({ data }) => {
   let navigate = useNavigate();
+  let myData = [
+    {
+      name: "Core Concept",
+      link: "questions",
+    },
+    {
+      name: "MCQ's",
+      link: "mcq",
+    },
+    {
+      name: "Tutorial",
+      link: "tutorial",
+    },
+  ];
   return (
     <Fragment>
       {" "}
@@ -27,56 +41,28 @@ const Main = ({ data }) => {
         alignItems="center"
         alignContent="center"
       >
-        <Grid item xs={12} sm={12} md={4}>
-          <Card align="center">
-            <CardActionArea
-              onClick={() => {
-                navigate(`/${data["path"]}-questions`);
-              }}
-            >
-              <CardContent>
-                <img src={data["img"]} alt={data["name"]} width={80} />
-                <Typography color="text.secondary">
-                  {data["name"]} Core Concepts
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={12} md={4}>
-          <Card align="center">
-            <CardActionArea
-              onClick={() => {
-                navigate(`/${data["path"]}-mcq`);
-              }}
-            >
-              <CardContent>
-                <img src={data["img"]} alt={data["name"]} width={80} />
-                <Typography color="text.secondary">
-                  {" "}
-                  {data["name"]} (MCQ's)
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid item xs={12} sm={12} md={4}>
-          <Card align="center">
-            <CardActionArea
-              onClick={() => {
-                navigate(`/${data["path"]}-tutorial`);
-              }}
-            >
-              <CardContent>
-                <img src={data["img"]} alt={data["name"]} width={80} />
-                <Typography color="text.secondary">
-                  {" "}
-                  {data["name"]} Tutorial
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+        {myData.map((itm, im) => (
+          <Grid item xs={12} sm={12} md={4} key={im}>
+            <Card align="center">
+              <CardActionArea
+                onClick={() => {
+                  navigate(`/${data["path"]}-${itm.link}`);
+                }}
+              >
+                <CardContent>
+                  <Box sx={{ mb: 1 }}>
+                    <img src={data["img"]} alt={data["name"]} width={80} />
+                  </Box>
+                  <Chip
+                    label={`${data["name"]} ${itm.name}`}
+                    variant="outlined"
+                    size="small"
+                  />
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
     </Fragment>
   );

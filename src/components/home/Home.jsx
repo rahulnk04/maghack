@@ -2,12 +2,11 @@ import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import "./Home.scss";
 import Grid from "@mui/material/Grid";
-// import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { Box, CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Chip from "@mui/material/Chip";
 import LoadingScreen from "../layout/LoadingScreen";
 
 const Home = () => {
@@ -33,10 +32,11 @@ const Home = () => {
                   }}
                 >
                   <CardContent>
-                    <img src={topic.logo} alt={topic.topic} width={80} />
-                    <Typography color="text.secondary">
-                      {topic.topic}
-                    </Typography>
+                    <Box sx={{ mb: 1 }}>
+                      <img src={topic.logo} alt={topic.topic} width={80} />
+                    </Box>
+
+                    <Chip label={`${topic.topic} Tutorials` } variant="outlined" size="small"/>
                   </CardContent>
                 </CardActionArea>
               </Card>
