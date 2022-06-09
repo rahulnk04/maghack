@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark as docco } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Card from "@mui/material/Card";
+import DynamicTable from "../layout/DynamicTable";
 
 const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
   return (
@@ -15,7 +16,7 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
         <Fragment>
           <Typography
             variant="overline"
-            sx={{ color: "#079FFF", fontWeight: "bold" }}
+            sx={{ color: "#fe414d", fontWeight: "bold" }}
           >
             Key Concepts covered includes following
           </Typography>
@@ -24,9 +25,9 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
             spacing={{ xs: 1, sm: 1, md: 1 }}
           >
             {topics.map((r, i) => (
-              <Chip color="primary" label={r.name} variant="outlined" key={i} />
+              <Chip color="error" label={r.name} variant="outlined" key={i} />
             ))}
-            <Chip label={`Total Question - ${qstns.length}`} color="primary" />
+            <Chip label={`Total Question - ${qstns.length}`} color="error" />
           </Stack>
         </Fragment>
       )}
@@ -45,7 +46,7 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
             >
               {i + 1}
             </Avatar>
-            <Typography style={{ color: "#5d279b", fontSize: 16 }} variant="h6">
+            <Typography style={{ color: "#FE414D", fontSize: 16 }} variant="h6">
               {r["question"]}
             </Typography>
           </Box>
@@ -72,7 +73,7 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
             <Fragment>
               {r["codes"].map((c, ci) => (
                 <Box key={ci}>
-                  <Box sx={{ color: "#FE414D" }}>
+                  <Box sx={{ color: "#5d279b" }}>
                     <Typography
                       variant="caption"
                       sx={{ fontSize: 13, fontWeight: "bold" }}
@@ -89,7 +90,7 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
                       },
                     }}
                     wrapLines={true}
-                    language={lang}
+                    language={c["language"]}
                     style={docco}
                   >
                     {c["code"]}
@@ -97,6 +98,12 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
                 </Box>
               ))}
             </Fragment>
+          )}
+          {r["hasTable"] && (
+            <DynamicTable
+              columns={r["table"]["tableHead"]}
+              data={r["table"]["tableBody"]}
+            />
           )}
           {r["imageTrue"] && (
             <Fragment>
@@ -108,7 +115,7 @@ const QstnMain = ({ topics, qstns, topicsTrue, lang }) => {
                     alt={img["image"]}
                   />
                   <br />
-                  <span style={{ color: "#FE414D" }}>{img["imageHead"]}</span>
+                  <span style={{ color: "#079fff" }}>{img["imageHead"]}</span>
                 </Box>
               ))}
             </Fragment>

@@ -27,10 +27,14 @@ const Main = ({ data }) => {
     <Fragment>
       {" "}
       <Box sx={{ mb: 3 }}>
-        <Typography variant="h6" sx={{ color: "#079FFF" }}>
+        <Typography variant="h6" sx={{ color: "#FE414D" }}>
           What is {data.name} ?
         </Typography>
-        <Typography variant="body2" color={"text.secondary"}>
+        <Typography
+          variant="body2"
+          color={"text.secondary"}
+          sx={{ whiteSpace: "pre-line" }}
+        >
           {data.desc}
         </Typography>
       </Box>

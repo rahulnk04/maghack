@@ -9,7 +9,7 @@ const UnderConstruction = () => {
     <div>
       <Grid align="center">
         <Button
-          sx={{ color: "#24292f" }}
+          sx={{ color: "#fe414d" }}
           onClick={() => {
             navigate("/home");
           }}
