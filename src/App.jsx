@@ -16,6 +16,10 @@ import JavaScriptMain from "./components/main/javascript/JavaScriptMain";
 import JavaScriptLearn from "./components/main/javascript/JavaScriptLearn";
 import NodejsMain from "./components/main/nodejs/NodejsMain";
 import NodejsLearn from "./components/main/nodejs/NodejsLearn";
+import CssMain from "./components/main/css/CssMain";
+import HtmlMain from "./components/main/html/HtmlMain";
+import CssLearn from "./components/main/css/CssLearn";
+import HtmlLearn from "./components/main/html/HtmlLearn";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,11 +46,14 @@ const App = () => {
               element={<JavaScriptLearn />}
             />
             <Route exact path="/nodejs" element={<NodejsMain />} />
-            <Route
-              exact
-              path="/nodejs-questions"
-              element={<NodejsLearn />}
-            />
+            <Route exact path="/nodejs-questions" element={<NodejsLearn />} />
+
+            <Route exact path="/html" element={<HtmlMain />} />
+            <Route exact path="/html-questions" element={<HtmlLearn />} />
+
+            <Route exact path="/css" element={<CssMain />} />
+            <Route exact path="/css-questions" element={<CssLearn />} />
+
             <Route exact path="/*" element={<UnderConstruction />} />
           </Route>
 

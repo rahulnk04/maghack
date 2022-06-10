@@ -18,7 +18,12 @@ import {
   ALL_QSTNS_NODEJS_REQUEST,
   ALL_QSTNS_NODEJS_SUCCESS,
   ALL_QSTNS_NODEJS_FAIL,
-  // JavaScript End
+  ALL_QSTNS_HTML_REQUEST,
+  ALL_QSTNS_HTML_SUCCESS,
+  ALL_QSTNS_HTML_FAIL,
+  ALL_QSTNS_CSS_REQUEST,
+  ALL_QSTNS_CSS_SUCCESS,
+  ALL_QSTNS_CSS_FAIL,
 } from "../constants/Constants";
 
 // All Topics Start
@@ -202,3 +207,63 @@ export const qstnNodeJsReducer = (state = { nodejsqstns: [] }, action) => {
   }
 };
 // NodeJs End
+
+// HTML Start
+export const qstnHtmlReducer = (state = { htmlqstns: [] }, action) => {
+  switch (action.type) {
+    case ALL_QSTNS_HTML_REQUEST:
+      return {
+        htmlqstnsloading: true,
+        htmlqstns: [],
+      };
+    case ALL_QSTNS_HTML_SUCCESS:
+      return {
+        htmlqstnsloading: false,
+        htmlqstns: action.payload,
+      };
+    case ALL_QSTNS_HTML_FAIL:
+      return {
+        // loading:false,
+        htmlqstnserror: action.payload,
+        ...state,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        htmlqstnserror: null,
+      };
+    default:
+      return state;
+  }
+};
+// HTML End
+
+// CSS Start
+export const qstnCssReducer = (state = { cssqstns: [] }, action) => {
+  switch (action.type) {
+    case ALL_QSTNS_CSS_REQUEST:
+      return {
+        cssqstnsloading: true,
+        cssqstns: [],
+      };
+    case ALL_QSTNS_CSS_SUCCESS:
+      return {
+        cssqstnsloading: false,
+        cssqstns: action.payload,
+      };
+    case ALL_QSTNS_CSS_FAIL:
+      return {
+        // loading:false,
+        cssqstnserror: action.payload,
+        ...state,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        cssqstnserror: null,
+      };
+    default:
+      return state;
+  }
+};
+// CSS END

@@ -19,6 +19,12 @@ import {
   ALL_QSTNS_NODEJS_REQUEST,
   ALL_QSTNS_NODEJS_SUCCESS,
   ALL_QSTNS_NODEJS_FAIL,
+  ALL_QSTNS_HTML_REQUEST,
+  ALL_QSTNS_HTML_SUCCESS,
+  ALL_QSTNS_HTML_FAIL,
+  ALL_QSTNS_CSS_REQUEST,
+  ALL_QSTNS_CSS_SUCCESS,
+  ALL_QSTNS_CSS_FAIL,
 } from "../constants/Constants";
 
 export const clearErrors = () => async (dispatch) => {
@@ -171,3 +177,53 @@ export const getNodeJstQstns = () => async (dispatch) => {
   }
 };
 // NodeJst End
+
+// HTML Start
+export const getHtmlQstns = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: ALL_QSTNS_HTML_REQUEST,
+    });
+
+    const API_URL = `https://rahulnk04.github.io/myapi-v1/questions/html/htmlqstn.json`;
+
+    const { data } = await axios.get(API_URL);
+    dispatch({
+      type: ALL_QSTNS_HTML_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_QSTNS_HTML_FAIL,
+      payload: error.response.data.message,
+      // payload: error.response.data.error.message
+      // payload: error.response.data.message,
+    });
+  }
+};
+// HTML END
+
+// CSS Start
+export const getCssQstns = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: ALL_QSTNS_CSS_REQUEST,
+    });
+
+    const API_URL = `https://rahulnk04.github.io/myapi-v1/questions/css/cssqstns.json`;
+
+    const { data } = await axios.get(API_URL);
+    dispatch({
+      type: ALL_QSTNS_CSS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: ALL_QSTNS_CSS_FAIL,
+      payload: error.response.data.message,
+      // payload: error.response.data.error.message
+      // payload: error.response.data.message,
+    });
+  }
+};
+// Css End
