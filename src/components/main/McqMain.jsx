@@ -29,7 +29,7 @@ const McqMain = ({ mcqs }) => {
               {i + 1}
             </Avatar>
             <Typography
-              style={{ color: "#079FFF", fontSize: 16 }}
+              style={{ color: "#FE414D", fontSize: 16 }}
               variant="subtitle1"
             >
               {mcq["question"]}
@@ -96,7 +96,7 @@ const McqMain = ({ mcqs }) => {
               expandIcon={<ExpandMoreIcon />}
               id="panel1a-header"
             >
-              <Button size={"small"}>Check Answer</Button>
+              <Button className="mcq-btn" size={"small"} color="error">Check Answer</Button>
             </AccordionSummary>
             <AccordionDetails sx={{ pt: 0, mt: 0 }}>
               <Typography variant="subtitle1" sx={{ color: "#fe414d" }}>
