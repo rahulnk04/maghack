@@ -16,6 +16,7 @@ const McqMain = ({ mcqs }) => {
     <div>
       {mcqs.map((mcq, i) => (
         <Card key={i} sx={{ mb: 2, p: 2 }} elevation={5}>
+   
           <Box sx={{ display: "flex" }}>
             <Avatar
               sx={{
@@ -28,11 +29,8 @@ const McqMain = ({ mcqs }) => {
             >
               {i + 1}
             </Avatar>
-            <Typography
-              style={{ color: "#FE414D", fontSize: 16 }}
-              variant="subtitle1"
-            >
-              {mcq["question"]}
+            <Typography style={{ color: "#FE414D", fontSize: 16 }} variant="h6">
+            {mcq["question"]}
             </Typography>
           </Box>
           {mcq["qstnCodeTrue"] && (
